@@ -1,0 +1,19 @@
+{
+    "name": "maty/twig-htmx",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Maty\\TwigHtmx\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "matyasssykora",
+            "email": "96580182+matyassykora@users.noreply.github.com"
+        }
+    ]
+}

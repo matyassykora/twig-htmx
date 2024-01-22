@@ -1,0 +1,14 @@
+{% extends "./layouts/base.html.twig" %}
+{% block title %}index{% endblock %}
+{% block content %}
+    <div class="">
+        <table class="table-auto">
+            {% for todo in todos %}
+                <tr>
+                    <td>{{ todo.ID }}</td>
+                    <td>{{ todo.Name }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

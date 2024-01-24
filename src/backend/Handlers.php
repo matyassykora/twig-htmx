@@ -8,23 +8,22 @@ use Closure;
 
 class Handlers
 {
+    private $twig;
+
     public Closure $handleNotFoundGet;
     public Closure $handleIndexGet;
     public Closure $handleTabsGet;
-    public Closure $handleTabGet;
 
     private $todos = array(
         0 => array(
             "ID" => "A",
-            "Name" => "PEPA Z DEPA"
+            "Name" => "Thing"
         ),
         1 => array(
             "ID" => "B",
-            "Name" => "TONDA Z BRNA"
+            "Name" => "Stuff"
         )
     );
-
-    private $twig;
 
     public function __construct(private string $dir)
     {
@@ -42,25 +41,27 @@ class Handlers
             ));
         };
 
-        $this->handleTabsGet = function ($tab = -1) {
-            $context = array(
-                'tab' => $tab
-            );
-            echo $this->twig->render('tabs.html.twig', $context);
-        };
+        /*
+        // a different way
+        public function handleIndexGet(){
+            return function(){
+            ...
+            };
+        }
+        */
 
-        $this->handleTabGet = function ($tab) {
-            if ($tab <-1 || $tab > 3) {
+        $this->handleTabsGet = function ($tab) {
+            if ($tab < 1 || $tab > 3) {
                 $tab = 1;
             }
-            $isHTMXRequest = isset($_SERVER['HTTP_HX_REQUEST']) && $_SERVER['HTTP_HX_REQUEST'] == 'true';
-            if (!$isHTMXRequest) {
-                call_user_func($this->handleTabsGet, $tab);
-                return;
-            }
             $context = array(
                 'tab' => $tab
             );
+            $isHTMXRequest = isset($_SERVER['HTTP_HX_REQUEST']) && $_SERVER['HTTP_HX_REQUEST'] == 'true';
+            if (!$isHTMXRequest) {
+                echo $this->twig->render('tabs.html.twig', $context);
+                return;
+            }
             echo $this->twig->render('partials/tabs/tab.html.twig', $context);
         };
     }

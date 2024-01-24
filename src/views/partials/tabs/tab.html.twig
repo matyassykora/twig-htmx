@@ -1,7 +1,7 @@
 <div class="tab-list inline-flex" role="tablist">
     <button {% if tab==1 %}disabled{% endif %}
             hx-get="/tabs/1"
-            class="btn-group-gray border border-gray-400 rounded-s-md"
+            class="btn-gray border border-gray-400 rounded-s-md"
             role="tab"
             autocomplete="off"
             aria-selected='false'
@@ -11,7 +11,7 @@
     </button>
     <button {% if tab==2 %}disabled{% endif %}
             hx-get="/tabs/2"
-            class="btn-group-gray border-t border-b border-gray-400"
+            class="btn-gray border-t border-b border-gray-400"
             role="tab"
             autocomplete="off"
             aria-selected="false"
@@ -21,7 +21,7 @@
     </button>
     <button {% if tab==3 %}disabled{% endif %}
             hx-get="/tabs/3"
-            class="btn-group-gray border border-gray-400 rounded-e-md"
+            class="btn-gray border border-gray-400 rounded-e-md"
             role="tab"
             autocomplete="off"
             aria-selected="false"

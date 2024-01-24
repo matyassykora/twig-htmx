@@ -1,18 +1,9 @@
 {% extends "./layouts/base.html.twig" %}
 {% block content %}
-    {% if tab == -1 %}
-        <div id="tabs"
-             hx-get="/tabs/1"
-             hx-trigger="load delay:100ms"
-             hx-replace-url="true"
-             hx-target="#tabs"
-             hx-swap="innerHTML"></div>
-    {% else %}
-        <div id="tabs"
-             hx-get="/tabs/{{ tab }}"
-             hx-trigger="load delay:100ms"
-             hx-replace-url="true"
-             hx-target="#tabs"
-             hx-swap="innerHTML"></div>
-    {% endif %}
+    <div id="tabs"
+         hx-get="/tabs/{{ tab }}"
+         hx-trigger="load"
+         hx-replace-url="true"
+         hx-target="#tabs"
+         hx-swap="innerHTML"></div>
 {% endblock %}
